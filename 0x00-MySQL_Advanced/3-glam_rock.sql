@@ -5,10 +5,13 @@
 -- ORDER BY lifespan DESC;
 
 
-SELECT band_name, 
-       IF(split = 0, 
-          2022 - formed, 
-          split - formed) AS lifespan 
-FROM metal_bands 
-WHERE style LIKE '%Glam rock%' 
-ORDER BY lifespan DESC;
+SELECT 
+    band_name,
+    IF(split = 0, 2022 - formed, split - formed) AS lifespan
+FROM 
+    metal_bands
+WHERE 
+    main_style = 'Glam rock'
+ORDER BY 
+    lifespan DESC;
+
